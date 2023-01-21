@@ -17,7 +17,8 @@ namespace Project_Programming
         {
             InitializeComponent();
         }
-        Thread th;
+        Thread circle;
+        Thread rectangle;
         Random rdm;
         public void threadCircle()
         {
@@ -33,6 +34,23 @@ namespace Project_Programming
                 }
             }
         }
+        public void threadRectangle()
+        {
+            while (true)
+            {
+                int randomlength = rdm.Next(0, this.Width);
+                int randomheight = rdm.Next(0, this.Height);
+                int width = rdm.Next(0, this.Width);
+                int height = rdm.Next(0, this.Height);
+                if (randomlength < 100 && randomheight < 100 && width < 700 && height < 350)
+                {
+                    this.CreateGraphics().DrawRectangle(new Pen(Brushes.Red, 1), new Rectangle(width
+                    , height, randomlength, randomheight));
+                    Thread.Sleep(300);
+                }
+
+            }
+        }
         private void btnTriangle_Click(object sender, EventArgs e)
         {
 
@@ -40,13 +58,14 @@ namespace Project_Programming
 
         private void btnRectangle_Click(object sender, EventArgs e)
         {
-
+            rectangle = new Thread(threadRectangle);
+            rectangle.Start();
         }
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
-            th = new Thread(threadCircle);
-            th.Start();
+            circle = new Thread(threadCircle);
+            circle.Start();
         }
 
         private void btnLines_Click(object sender, EventArgs e)
