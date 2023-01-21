@@ -16,5 +16,35 @@ namespace Project_Programming
         {
             InitializeComponent();
         }
+
+        private void btnTriangle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRectangle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCircle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLines_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
