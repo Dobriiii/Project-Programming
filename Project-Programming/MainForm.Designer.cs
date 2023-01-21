@@ -108,6 +108,7 @@
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnTriangle);
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
