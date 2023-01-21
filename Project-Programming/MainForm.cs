@@ -19,6 +19,7 @@ namespace Project_Programming
         }
         Thread circle;
         Thread rectangle;
+        Thread triangle;
         Random rdm;
         public void threadCircle()
         {
@@ -30,7 +31,7 @@ namespace Project_Programming
                 {
                     int random = rdm.Next(0, 50);
                     this.CreateGraphics().DrawEllipse(new Pen(Brushes.Black, 1), new Rectangle(width, height, random, random));
-                    Thread.Sleep(400);
+                    Thread.Sleep(4000);
                 }
             }
         }
@@ -46,14 +47,32 @@ namespace Project_Programming
                 {
                     this.CreateGraphics().DrawRectangle(new Pen(Brushes.Red, 1), new Rectangle(width
                     , height, randomlength, randomheight));
-                    Thread.Sleep(300);
+                    Thread.Sleep(3000);
                 }
 
             }
         }
+        public void threadTriangle()
+        {
+            while (true)
+            {
+                int pointWidth = rdm.Next(0, this.Width);
+                int pointWidth1 = rdm.Next(0, this.Width);
+                int pointHeight1 = rdm.Next(0, this.Height);
+                int pointWidth2 = rdm.Next(0, this.Width);
+                int pointHeight2 = rdm.Next(0, this.Height);
+                if (pointWidth > 50 && pointWidth < 400 && pointWidth1 > 50 && pointWidth1 < 800 && pointWidth2 > 50 && pointWidth2 < 400 && pointHeight1 > 50 && pointHeight1 < 200 && pointHeight2 > 50 && pointHeight2 < 200)
+                {
+                    Point[] a = { new Point(pointWidth, pointWidth), new Point(pointWidth1, pointHeight1), new Point(pointWidth2, pointHeight2) };
+                    this.CreateGraphics().DrawPolygon(new Pen(Brushes.Blue, 1), a);
+                    Thread.Sleep(2000);
+                }
+            }
+        }
         private void btnTriangle_Click(object sender, EventArgs e)
         {
-
+            triangle = new Thread(threadTriangle);
+            triangle.Start();
         }
 
         private void btnRectangle_Click(object sender, EventArgs e)
