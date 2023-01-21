@@ -20,7 +20,23 @@ namespace Project_Programming
         Thread circle;
         Thread rectangle;
         Thread triangle;
+        Thread line;
         Random rdm;
+        public void threadLine()
+        { 
+            while (true)
+            {
+                int width = rdm.Next(0, this.Width);
+                int height = rdm.Next(0, this.Height);
+                int randompoint1 = rdm.Next(100, 400);
+                int randompoint2 = rdm.Next(100, 400);
+                if (width < 700 && height < 300 && height > 30 && width > 30)
+                {
+                    this.CreateGraphics().DrawLine(new Pen(Brushes.IndianRed, 1), new Point(width, height), new Point(randompoint1, randompoint2));
+                    Thread.Sleep(1000);
+                }
+            }
+        }
         public void threadCircle()
         {
             while (true)
@@ -89,7 +105,8 @@ namespace Project_Programming
 
         private void btnLines_Click(object sender, EventArgs e)
         {
-
+            line = new Thread(threadLine);
+            line.Start();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
