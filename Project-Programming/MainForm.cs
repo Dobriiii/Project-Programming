@@ -22,9 +22,10 @@ namespace Project_Programming
         Thread triangle;
         Thread line;
         Random rdm;
+        int i = 0;
         public void threadLine()
         { 
-            while (true)
+            while (i == 0)
             {
                 int width = rdm.Next(0, this.Width);
                 int height = rdm.Next(0, this.Height);
@@ -39,7 +40,7 @@ namespace Project_Programming
         }
         public void threadCircle()
         {
-            while (true)
+            while (i == 0)
             {
                 int width = rdm.Next(0, this.Width);
                 int height = rdm.Next(0, this.Height);
@@ -53,7 +54,7 @@ namespace Project_Programming
         }
         public void threadRectangle()
         {
-            while (true)
+            while (i == 0)
             {
                 int randomlength = rdm.Next(0, this.Width);
                 int randomheight = rdm.Next(0, this.Height);
@@ -70,7 +71,7 @@ namespace Project_Programming
         }
         public void threadTriangle()
         {
-            while (true)
+            while (i == 0)
             {
                 int pointWidth = rdm.Next(0, this.Width);
                 int pointWidth1 = rdm.Next(0, this.Width);
@@ -111,12 +112,12 @@ namespace Project_Programming
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-
+            i = 0;
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-
+            i = 1;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
